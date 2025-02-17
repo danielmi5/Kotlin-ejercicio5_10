@@ -23,12 +23,18 @@ fun main(){
     for (persona in lista){
         println(persona)
         println(persona.celebrarCumple())
-        if (persona is Empleado){
-            println("${empleado.nombre} recibe con impuestos ${"%.2f".format(empleado.calcularSalario())}€.")
-            println(persona.trabajar())
-        } else{
-            
+        when(persona){
+            if (persona is Empleado){
+                println("${empleado.nombre} recibe con impuestos ${"%.2f".format(empleado.calcularSalario())}€.")
+                println(persona.trabajar())
+            } else{
+                if (persona.exentoImpuestos){
+                    println("${persona.nombre} está exento de impuestos por lo que recibe más bonus es ${persona.calcularSalario()}€.")
+                } else println("${persona.nombre} recibe con impuestos y bonus añadidos es ${"%.2f".format(persona.calcularSalario())}€.")
+                println(persona.administrar())
+            }
         }
+
 
 
 
