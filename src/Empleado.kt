@@ -5,7 +5,7 @@ open class Empleado(nombre: String, edad: Int, salarioBase: Number, porcentajeIm
 
 
     open fun calcularSalario(): Double{
-        return salarioBase*(porcentajeImpuestos/100)
+        return salarioBase-salarioBase*(porcentajeImpuestos/100)
     }
 
     fun trabajar(): String{
